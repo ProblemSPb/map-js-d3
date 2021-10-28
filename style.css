@@ -25,3 +25,9 @@ h1, h3 {
     height: 70px;
     font-size: 12px;
 }
+
+#tooltip {
+    visibility: hidden;
+    width: auto;
+    height: 20px;
+}

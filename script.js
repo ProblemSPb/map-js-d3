@@ -6,6 +6,9 @@ let eduData
 
 let canvas = d3.select('#canvas')
 
+// create tooltip
+let tooltip = d3.select('#tooltip')
+
 function drawMap () {
     canvas.selectAll('path')
             .data(countyData)
@@ -44,6 +47,23 @@ function drawMap () {
 
                 let percentage = county['bachelorsOrHigher']
                 return percentage
+            })
+            .on('mouseover', (countyDataItem) => {
+                tooltip.transition()
+                        .style('visibility', 'visible')
+
+                        let countyID = countyDataItem['id']
+                        let county = eduData.find((item) => {
+                            return item['fips'] === countyID
+                        })
+
+                tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' + 
+                            county['state'] + ': ' + county['bachelorsOrHigher'] + '%.')
+                        .attr('data-education', county['bachelorsOrHigher'])
+            })
+            .on('mouseout', (countyDataItem) => {
+                tooltip.transition()
+                        .style('visibility', 'hidden');
             })
 }
 
