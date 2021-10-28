@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United States Educational Attainment</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" integrity="sha256-tHoAPGoNdhIR28YHl9DWLzeRfdwigkH7OCBXMrHXhoM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -13,6 +14,21 @@
     <h3 id="description">Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h3>
     <svg id="canvas">
 
+    </svg>
+    <svg id="legend">
+        <svg id="legend-container" x="300" y="20" id="cont" width="600px" height="50px">
+                <rect x="0" y="20" width="20" height="20" fill="#c7e9c0"></rect>
+                <text x="30" y="35"> 15% or less </text>
+
+                <rect x="150" y="20" width="20" height="20" fill="#a1d99b"></rect>
+                <text x="180" y="35"> 30 or less%</text>
+
+                <rect x="300" y="20" width="20" height="20" fill="#74c476"></rect>
+                <text x="330" y="35"> 45% or less </text>
+
+                <rect x="450" y="20" width="20" height="20" fill="#238b45"></rect>
+                <text x="480" y="35"> More than 45%</text>
+        </svg>
     </svg>
 </body>
 <script defer src="./script.js"></script>
